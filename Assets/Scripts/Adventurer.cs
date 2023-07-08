@@ -4,31 +4,13 @@ using UnityEngine;
 using PixelCrushers.DialogueSystem;
 
 [RequireComponent(typeof(DialogueSystemTrigger))]
-[RequireComponent(typeof(Usable))]
 public class Adventurer : MonoBehaviour
 {
 
-    public string name;
-    public string conversation;
+    public NPCGenerator spawner;
 
-    private DialogueSystemTrigger trigger;
-    private Usable usable;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        trigger = GetComponent<DialogueSystemTrigger>();
-        usable = GetComponent<Usable>();
+    public void OnAnimationEnd () {
+        spawner.CycleNPC();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void SetupDialogue () {
-        trigger.conversation = conversation;
-        usable.overrideName = name;
-    }
 }
