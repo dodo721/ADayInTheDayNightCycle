@@ -21,6 +21,6 @@ public class NPCGenerator : MonoBehaviour
 
     public void SpawnNPC () {
         GameObject adventurer = adventurers[Random.Range(0, adventurers.Length)];
-        Instantiate(adventurer, transform.position, adventurer.transform.rotation);
+        Instantiate(adventurer, transform.position, adventurer.transform.rotation, transform);
     }
 }
