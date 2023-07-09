@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: grass_road
+    second: {fileID: 2100000, guid: 0ead35cb78a80ae47922bc3a8f0d004a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: grass_vertexcolor
     second: {fileID: 2100000, guid: fc0be66576fe2aa4da8a2cc96a3febbb, type: 2}
   - first:
