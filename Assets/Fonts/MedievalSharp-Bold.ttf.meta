@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 026826d5e2f51f9438198940b1cffb36
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Medieval Sharp
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 204f8965eb3d46347ae8766a7e122fc0, type: 3}
+  - {fileID: 12800000, guid: 61b122fbae26b5a43aa4c879cacf2bd6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

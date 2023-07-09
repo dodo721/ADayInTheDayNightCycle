@@ -13,4 +13,9 @@ public class Adventurer : MonoBehaviour
         spawner.CycleNPC();
     }
 
+    void Start () {
+        NametagNameSetter nametag = GetComponentInChildren<NametagNameSetter>();
+        nametag.SetName(gameObject.name.Replace("(Clone)", ""));
+    }
+
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 
 public class NPCGenerator : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class NPCGenerator : MonoBehaviour
 
     private GameObject currentAdventurer;
 
+    public EndStateDisplay endStateDisplay;
+    public GameObject endStatePanel;
+
     public bool test;
     public int testIndex;
 
@@ -17,7 +21,6 @@ public class NPCGenerator : MonoBehaviour
     void Start()
     {
         if (!test) reshuffle();
-        CycleNPC();
     }
 
     // Update is called once per frame
@@ -28,12 +31,30 @@ public class NPCGenerator : MonoBehaviour
 
     public void CycleNPC () {
         if (test) currentIdx = testIndex;
-        if (currentIdx >= adventurers.Length) return;
+        if (currentIdx >= adventurers.Length) {
+            EndGame();
+            return;
+        }
         if (currentAdventurer) Destroy(currentAdventurer);
         GameObject adventurer = adventurers[currentIdx];
         currentIdx++;
         currentAdventurer = Instantiate(adventurer, transform.position, adventurer.transform.rotation, transform);
         currentAdventurer.GetComponent<Adventurer>().spawner = this;
+    }
+
+    void EndGame () {
+        int score = DialogueLua.GetVariable("Score").asInt;
+        int maxScore = adventurers.Length * 3;
+        int thresholdStep = (maxScore * 2) / 3;
+        int loseThreshold = thresholdStep - maxScore;
+        int midThreshold = (thresholdStep * 2) - maxScore;
+        int winThreshold = (thresholdStep * 3) - maxScore;
+        string endState = "none";
+        if (score <= loseThreshold) endState = "lose";
+        else if (score <= midThreshold) endState = "mid";
+        else endState = "win";
+        endStateDisplay.DisplayEndState(endState);
+        endStatePanel.SetActive(true);
     }
 
     void reshuffle()
