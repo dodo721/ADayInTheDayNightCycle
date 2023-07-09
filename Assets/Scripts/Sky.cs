@@ -12,7 +12,9 @@ public class Sky : MonoBehaviour
     public Gradient fogColor;
 
     public float speedIdle;
-    public float speedLerping;
+
+    private float offset = 0;
+    private float lastProgress = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +26,12 @@ public class Sky : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        offset += speedIdle * Time.deltaTime;
         float progress = controller.progress;
+        offset += progress - lastProgress;
+        lastProgress = progress;
         mat.SetFloat("_Progress", progress);
-        mat.SetFloat("_SpeedMultiplier", controller.lerping ? speedLerping : speedIdle);
+        mat.SetFloat("_Scroll", offset);
         RenderSettings.fogColor = fogColor.Evaluate(progress);
     }
 }
