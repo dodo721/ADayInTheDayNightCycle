@@ -15,7 +15,7 @@ public class Adventurer : MonoBehaviour
 
     void Start () {
         NametagNameSetter nametag = GetComponentInChildren<NametagNameSetter>();
-        nametag.SetName(gameObject.name.Replace("(Clone)", ""));
+        if (nametag) nametag.SetName(gameObject.name.Replace("(Clone)", ""));
     }
 
 }
