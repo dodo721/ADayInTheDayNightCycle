@@ -7,6 +7,8 @@ The game was 40th Most Rated out of 6,804 entries, placing in the top 20% in Ove
 
 Developer: Vera Durkin (dodo721)
 
+Writers: Avery Redd, Kate Landels, Hildegarde Warwick
+
 2D Art: Kate Landels
 
 UI Art: Sara Selman
